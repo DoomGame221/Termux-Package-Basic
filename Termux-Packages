@@ -1,7 +1,5 @@
 #!/bin/bash
 
-rm ~/x
-
 # Clear the screen
 clear
 
@@ -16,15 +14,21 @@ echo -e "\033[91m
 "
 
 # Custom "CREATED BY" with different colors for "DG" and "221"
-echo -e "CREATED BY \033[94m DG\033[92m 221"
+echo -e "\033[94m DG\033[92m 221"
 
 echo -e "\033[93m
 +--------------------------------------+ 
 | This Tool Installs All Basic Packages|
 +--------------------------------------+ 
-| Coded By DG221 | Version: 2.7        |
+| Coded By DG221 | Version: 2.6        |
 +--------------------------------------+ 
 "
+
+# Check if Python is installed, if not, install it
+if ! command -v python &> /dev/null; then
+    echo -e "\033[91mPython is not installed. Installing Python...\033[0m"
+    apt update && apt install -y python
+fi
 
 # List of packages
 packages=(

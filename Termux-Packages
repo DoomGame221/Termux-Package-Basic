@@ -35,7 +35,7 @@ echo -e "\033[93m
 
 # List of packages
 packages=(
-    python python2 python-dev python3 php java git perl
+    python python2 python3 php java git perl
     bash nano curl openssl openssh wget clang nmap
     w3m hydra ruby macchanger host dnsutils coreutils
     fish zip figlet cowsay unzip vim golang rust lua

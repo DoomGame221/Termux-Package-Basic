@@ -43,7 +43,7 @@ termux-setup-storage.
    $ apt install python 
    ```
    ```
-   $ git clone https://github.com/Hackertrackersj/Termux--Package
+   $ git clone https://github.com/DoomGame221/Termux-Package-Basic
    ```
    ```
    $ cd Termux-package
@@ -61,14 +61,7 @@ termux-setup-storage.
    $ python termux-package.py
 ```
 
-This will take too much time it's depends on your data connection. 
-
-### Visit on YouTube Channel
-
-https://www.youtube.com/c/NitroHacker
-
-### PRACTICAL VIDEO
-https://youtu.be/ibdMHfYzZNM
+This will take too much time it's depends on your data connection.
 
 For Hacking Videos Subscribe
 

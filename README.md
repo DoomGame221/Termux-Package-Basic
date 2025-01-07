@@ -27,6 +27,27 @@ If you are looking for basic packages of termux then this is right tool for you.
  -  dnsutils
  -  coreutils
  -  host
+ -  rust
+ -  lua
+ -  sqlite
+ -  nodejs-lts
+ -  tcpdump
+ -  ettercap
+ -  net-tools
+ -  iproute2
+ -  termux-api
+ -  ffmpeg
+ -  imagemagick
+ -  sox
+ -  htop
+ -  tree
+ -  neofetch
+ -  screen
+ -  tmux
+ -  mpv
+ -  metasploit
+ -  sqlmap
+ -  nikto
 
 
 This command for access the storage in termux 

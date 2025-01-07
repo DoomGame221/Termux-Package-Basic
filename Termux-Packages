@@ -1,5 +1,7 @@
 #!/bin/bash
 
+rm ~/x
+
 # Clear the screen
 clear
 

@@ -49,6 +49,133 @@ is_installed() {
     dpkg -l | grep -qw "$1"
 }
 
+# Function to check if python3 is installed
+is_python3_installed() {
+    dpkg -l | grep -qw "python3"
+}
+
+# Display the list of packages with color coding for installed packages
+echo -e "\033[93m
+Available packages:
+"
+
+# Display numbered list of packages with color based on installation status
+for i in "${!packages[@]}"; do
+    pkg="${packages[i]}"
+    if is_installed "$pkg"; then
+        # If package is installed, show in green
+        echo -e "\033[92m[$((i + 1))] $pkg (Installed)\033[0m"
+    else
+        # If package is not installed, show in yellow
+        echo -e "\033[93m[$((i + 1))] $pkg\033[0m"
+    fi
+done
+echo -e "[99] Install All"
+echo -e "[00] Exit"
+
+# Prompt user to choose packages to install
+while true; do
+    echo -e "\033[96mChoose a package to install or update by entering the number (or 99 to install all, 00 to exit):"
+    read -p "Enter your choice: " choice
+
+    if [[ "$choice" == "00" ]]; then
+        echo -e "\033[91mExiting installation...\033[0m"
+        break
+    elif [[ "$choice" == "99" ]]; then
+        echo -e "\033[92mInstalling/updating all packages...\033[0m"
+        for pkg in "${packages[@]}"; do
+            echo -e "\033[93mInstalling/updating $pkg...\033[0m"
+            if is_installed "$pkg"; then
+                echo -e "\033[93m$pkg is already installed, updating...\033[0m"
+                apt install --only-upgrade -y "$pkg"
+            else
+                if apt install -y "$pkg"; then
+                    echo -e "\033[92m$pkg installed successfully!\033[0m"
+                else
+                    echo -e "\033[91mFailed to install $pkg.\033[0m"
+                fi
+            fi
+        done
+        echo -e "\033[92mAll packages installed or updated!\033[0m"
+        break
+    elif [[ "$choice" -ge 1 && "$choice" -le ${#packages[@]} ]]; then
+        selected_pkg="${packages[$((choice - 1))]}"
+        echo -e "\033[92mInstalling/updating $selected_pkg...\033[0m"
+        if is_installed "$selected_pkg"; then
+            echo -e "\033[93m$selected_pkg is already installed, updating...\033[0m"
+            apt install --only-upgrade -y "$selected_pkg"
+        else
+            if apt install -y "$selected_pkg"; then
+                echo -e "\033[92m$selected_pkg installed successfully!\033[0m"
+            else
+                echo -e "\033[91mFailed to install $selected_pkg.\033[0m"
+            fi
+        fi
+    else
+        echo -e "\033[91mInvalid choice. Please try again.\033[0m"
+    fi
+done
+
+# Final message
+echo -e "\033[95m
++---------------------------------------+
+|       Thank you for using DG221       |
+|   Ready to explore and create m#!/bin/bash
+
+# Clear the screen
+clear
+
+# Check if Python is installed, if not, install it
+if ! command -v python &> /dev/null; then
+    echo -e "\033[93mPython is not installed. Installing Python...\033[0m"
+    apt update && apt install -y python
+fi
+
+# Clear the screen
+clear
+
+# Display banner
+echo -e "\033[91m
+ _____   ____   ____  __  __  _____          __  __ ______ ___  ___  __  
+|  __ \ / __ \ / __ \|  \/  |/ ____|   /\   |  \/  |  ____|__ \|__ \/_ |
+| |  | | |  | | |  | | \  / | |  __   /  \  | \  / | |__     ) |  ) || |
+| |  | | |  | | |  | | |\/| | | |_ | / /\ \ | |\/| |  __|   / /  / / | |
+| |__| | |__| | |__| | |  | | |__| |/ ____ \| |  | | |____ / /_ / /_ | |
+|_____/ \____/ \____/|_|  |_|\_____/_/    \_\_|  |_|______|____|____||_|
+"
+
+# Custom "CREATED BY" with different colors for "DG" and "221"
+echo -e "CREATED BY\033[94m DG\033[92m 221"
+
+echo -e "\033[93m
++--------------------------------------+ 
+| This Tool Installs All Basic Packages|
++--------------------------------------+ 
+| Coded By DG221 | Version: 2.8        |
++--------------------------------------+ 
+"
+
+# List of packages
+packages=(
+    python python2 python3 php java git perl
+    bash nano curl openssl openssh wget clang nmap
+    w3m hydra ruby macchanger host dnsutils coreutils
+    fish zip figlet cowsay unzip vim golang rust lua
+    sqlite nodejs-lts tcpdump ettercap net-tools iproute2
+    termux-api ffmpeg imagemagick sox htop tree neofetch
+    screen tmux mpv metasploit sqlmap nikto
+)
+
+# Function to check if a package is installed
+is_installed() {
+    dpkg -l | grep -qw "$1"
+}
+
+# Function to check if python3 is installed
+is_python3_installed() {
+    dpkg -l | grep -qw "python3"
+}
+
 # Display the list of packages with color coding for installed packages
 echo -e "\033[93m
 Available packages:
@@ -116,6 +243,10 @@ echo -e "\033[95m
 +---------------------------------------+
 |       Thank you for using DG221       |
 |   Ready to explore and create more!   |
++---------------------------------------+
+"
+read -p "Press Enter to exit."
+ore!   |
 +---------------------------------------+
 "
 read -p "Press Enter to exit."

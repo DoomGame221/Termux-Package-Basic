@@ -37,33 +37,28 @@ termux-setup-storage.
  
 ## Termux
    ```
-   $ apt install git 
+    pkg install git 
    ```
    ```
-   $ apt install python 
+    pkg install python 
    ```
    ```
-   $ git clone https://github.com/DoomGame221/Termux-Package-Basic
+    git clone https://github.com/DoomGame221/Termux-Package-Basic
    ```
    ```
-   $ cd Termux-package
+    cd Termux-package
    ```
    ```
-   $ ls
+    ls
    ```
    ```
-   $ chmod +x *
+    chmod +x Termux-Package-Basic
    ```
    ```
-   $ ls
+    ls
    ```
    ```
-   $ python termux-package.py
+    python Termux-Package-Basic.py
 ```
 
 This will take too much time it's depends on your data connection.
-
-For Hacking Videos Subscribe
-
-### My Website
-https://official-nitrohacker.blogspot.com/

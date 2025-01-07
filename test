@@ -18,7 +18,7 @@ echo -e "\033[93m
 +--------------------------------------+
 | This Tool Installs All Basic Packages|
 +--------------------------------------+
-| Coded By DG221 | Version: 2.5        |
+| Coded By DG221 | Version: 2.6        |
 +--------------------------------------+
 "
 
@@ -42,15 +42,28 @@ Available packages:
 for i in "${!packages[@]}"; do
     printf "[%02d] %s\n" $((i + 1)) "${packages[i]}"
 done
+echo -e "[99] Install All"
 echo -e "[00] Exit"
 
 # Prompt user to choose packages to install
 while true; do
-    echo -e "\033[96mChoose a package to install by entering the number (or 00 to exit):"
+    echo -e "\033[96mChoose a package to install by entering the number (or 99 to install all, 00 to exit):"
     read -p "Enter your choice: " choice
 
     if [[ "$choice" == "00" ]]; then
         echo -e "\033[91mExiting installation...\033[0m"
+        break
+    elif [[ "$choice" == "99" ]]; then
+        echo -e "\033[92mInstalling all packages...\033[0m"
+        for pkg in "${packages[@]}"; do
+            echo -e "\033[93mInstalling $pkg...\033[0m"
+            if apt install -y "$pkg"; then
+                echo -e "\033[92m$pkg installed successfully!\033[0m"
+            else
+                echo -e "\033[91mFailed to install $pkg.\033[0m"
+            fi
+        done
+        echo -e "\033[92mAll packages installed!\033[0m"
         break
     elif [[ "$choice" -ge 1 && "$choice" -le ${#packages[@]} ]]; then
         selected_pkg="${packages[$((choice - 1))]}"

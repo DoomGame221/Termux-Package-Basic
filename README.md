@@ -6,7 +6,6 @@ If you are looking for basic packages of termux then this is right tool for you 
  
  -  python
  -  python2
- -  python2-dev
  -  python3
  -  git
  -  php 

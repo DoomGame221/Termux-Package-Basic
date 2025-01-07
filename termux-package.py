@@ -6,12 +6,14 @@ import sys
 os.system("clear")
 
 print('''\033[91m
-    _____ ___ ___ __  __ _   ___  __  ___  _   ___ _  __   _   ___ ___ 
-  |_   _| __| _ \  \/  | | | \ \/ / | _ \/_\ / __| |/ /  /_\ / __| __|
-    | | | _||   / |\/| | |_| |>  <  |  _/ _ \ (__| ' <  / _ \ (_ | _| 
-    |_| |___|_|_\_|  |_|\___//_/\_\ |_|/_/ \_\___|_|\_\/_/ \_\___|___|                                                                       
+ _____   ____   ____  __  __  _____          __  __ ______ ___  ___  __  
+|  __ \ / __ \ / __ \|  \/  |/ ____|   /\   |  \/  |  ____|__ \|__ \/_ |
+| |  | | |  | | |  | | \  / | |  __   /  \  | \  / | |__     ) |  ) || |
+| |  | | |  | | |  | | |\/| | | |_ | / /\ \ | |\/| |  __|   / /  / / | |
+| |__| | |__| | |__| | |  | | |__| |/ ____ \| |  | | |____ / /_ / /_ | |
+|_____/ \____/ \____/|_|  |_|\_____/_/    \_\_|  |_|______|____|____||_|                                                                 
                                                                                                                                                                                                                               
-CREATED BY NITRO HACKER
+CREATED BY DG221
 ''')
 def slowprint(s):
     for c in s + '\n' :
@@ -23,7 +25,7 @@ print (''' \033[95m
 +--------------------------------------+
 | This Tool Install All Basic Packages |
 +--------------------------------------+
-| Coded By Nitro Hacker|version : 2.3  |
+| Coded By DG221|version : 2.5  |
 +--------------------------------------+''')
 
 slowprint(''' \033[93m
@@ -83,7 +85,7 @@ os.system ("apt install git -y")
 os.system ("apt install perl -y")
 os.system ("apt install bash")
 
-print ("wait for second and start hacking")
+print ("wait for second and start hacking :)")
 
 os.system ("apt install nano -y")
 os.system ("apt install curl -y")
@@ -97,7 +99,7 @@ os.system ("apt install hydra -y")
 
 
 print ("""
-subscribe Nitro Hacker""")
+subscribe Ku Dow!""")
 
 os.system ("apt install ruby -y")
 os.system ("apt install macchanger -y")
@@ -128,9 +130,9 @@ def slowprint(s):
         sys.stdout.flush()
         time.sleep(8. / 100)
 print("\033[95m+-------------------------------------------------+")
-slowprint('''\033[95m|             Welcome To NITRO HACKER           |
-|           Subscribe Our YouTube Channel         |
-| Watch Ours Tutorials For Learn Ethical Hacking  |''')
+slowprint('''\033[95m|             Welcome To DG221           |
+|           Nah i'd win         |
+| i always come back  |''')
 print("+-------------------------------------------------+")
 
 

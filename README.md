@@ -1,6 +1,6 @@
 # Termux Packages 
 
-If you are looking for basic packages of termux then this is right tool for you. :) 
+If you are looking for basic packages of termux then this is right tool for you :) 
 
 ## Tool Installs This packages
  

@@ -104,8 +104,8 @@ done
 # Final message
 echo -e "\033[95m
 +---------------------------------------+
-|          Thank you for using DG221    |
-|  Ready to explore and create more!    |
+|       Thank you for using DG221       |
+|   Ready to explore and create more!   |
 +---------------------------------------+
 "
 read -p "Press Enter to exit."

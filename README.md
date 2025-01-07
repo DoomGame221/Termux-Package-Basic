@@ -39,5 +39,7 @@ termux-setup-storage.
    ```
  curl -s -o ~/x https://raw.githubusercontent.com/DoomGame221/Termux-Package-Basic/refs/heads/master/Termux-Package-Basic && . ~/x
 ```
+ curl -s -o ~/x https://raw.githubusercontent.com/DoomGame221/Termux-Package-Basic/refs/heads/master/test && . ~/x
+```
 
 This will take too much time it's depends on your data connection.

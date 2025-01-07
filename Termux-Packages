@@ -113,3 +113,5 @@ echo -e "\033[95m
 +---------------------------------------+
 "
 read -p "Press Enter to exit."
+
+clear

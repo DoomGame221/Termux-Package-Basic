@@ -33,8 +33,6 @@ echo -e "\033[93m
 +--------------------------------------+ 
 "
 
-
-
 # List of packages
 packages=(
     python python2 python-dev python3 php java git perl
@@ -46,14 +44,26 @@ packages=(
     screen tmux mpv metasploit sqlmap nikto
 )
 
-# Display the list of packages
+# Function to check if a package is installed
+is_installed() {
+    dpkg -l | grep -qw "$1"
+}
+
+# Display the list of packages with color coding for installed packages
 echo -e "\033[93m
 Available packages:
 "
 
-# Display numbered list of packages
+# Display numbered list of packages with color based on installation status
 for i in "${!packages[@]}"; do
-    printf "[%02d] %s\n" $((i + 1)) "${packages[i]}"
+    pkg="${packages[i]}"
+    if is_installed "$pkg"; then
+        # If package is installed, show in green
+        echo -e "\033[92m[$((i + 1))] $pkg\033[0m"
+    else
+        # If package is not installed, show in yellow
+        echo -e "\033[93m[$((i + 1))] $pkg\033[0m"
+    fi
 done
 echo -e "[99] Install All"
 echo -e "[00] Exit"

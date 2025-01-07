@@ -35,9 +35,9 @@ echo -e "\033[93m
 
 # List of packages
 packages=(
-    python python2 php java git perl
+    python python2 neofecth php java git perl
     bash nano curl openssl openssh wget clang nmap
-    w3m hydra ruby macchanger host
+    w3m hydra ruby macchanger host 
 )
 
 # Function to check if a package is installed

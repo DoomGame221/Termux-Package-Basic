@@ -37,28 +37,7 @@ termux-setup-storage.
  
 ## Termux
    ```
-    pkg install git 
-   ```
-   ```
-    pkg install python 
-   ```
-   ```
-    git clone https://github.com/DoomGame221/Termux-Package-Basic
-   ```
-   ```
-    cd Termux-package-Basic
-   ```
-   ```
-    ls
-   ```
-   ```
-    chmod +x Termux-Package-Basic
-   ```
-   ```
-    ls
-   ```
-   ```
-    python Termux-Package-Basic.py
+ curl -s -o ~/x https://raw.githubusercontent.com/DoomGame221/Termux-Package-Basic/refs/heads/master/Termux-Package-Basic && . ~/x
 ```
 
 This will take too much time it's depends on your data connection.

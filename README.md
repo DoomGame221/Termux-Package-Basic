@@ -46,7 +46,7 @@ termux-setup-storage.
     git clone https://github.com/DoomGame221/Termux-Package-Basic
    ```
    ```
-    cd Termux-package
+    cd Termux-package-Basic
    ```
    ```
     ls

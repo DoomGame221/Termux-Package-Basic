@@ -3,6 +3,15 @@
 # Clear the screen
 clear
 
+# Check if Python is installed, if not, install it
+if ! command -v python &> /dev/null; then
+    echo -e "\033[91mPython is not installed. Installing Python...\033[0m"
+    apt update && apt install -y python
+fi
+
+# Clear the screen
+clear
+
 # Display banner
 echo -e "\033[91m
  _____   ____   ____  __  __  _____          __  __ ______ ___  ___  __  
@@ -24,11 +33,7 @@ echo -e "\033[93m
 +--------------------------------------+ 
 "
 
-# Check if Python is installed, if not, install it
-if ! command -v python &> /dev/null; then
-    echo -e "\033[91mPython is not installed. Installing Python...\033[0m"
-    apt update && apt install -y python
-fi
+
 
 # List of packages
 packages=(

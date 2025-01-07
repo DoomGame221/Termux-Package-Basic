@@ -35,7 +35,7 @@ echo -e "\033[93m
 
 # List of packages
 packages=(
-    python python2 neofecth git nano curl wget nmap 
+    python python2 neofetch git nano wget nmap 
 )
 
 # Function to check if a package is installed

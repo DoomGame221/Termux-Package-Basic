@@ -9,9 +9,11 @@ if ! command -v python &> /dev/null; then
     apt update && apt install -y python
 fi
 
+clear
+
 # Update and Upgrade
     echo -e "\033[93mUpdate and Upgrade...\033[0m"
-    pkg update && pkg upgrade
+    pkg update && pkg upgrade -y
 fi
 
 # Clear the screen

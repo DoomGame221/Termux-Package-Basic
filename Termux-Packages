@@ -26,16 +26,22 @@ echo -e "\033[91m
 echo -e "CREATED BY\033[94m DG\033[92m 221"
 
 echo -e "\033[93m
-+--------------------------------------+ 
-| This Tool Installs All Basic Packages|
-+--------------------------------------+ 
-| Coded By DG221 | Version: 2.9        |
-+--------------------------------------+ 
++---------------------------------------+ 
+| This Tool Installs All Basic Packages |
++---------------------------------------+ 
+|    Coded By DG221 | Version: 2.6      |
++---------------------------------------+ 
 "
 
 # List of packages
 packages=(
-    python python2 neofetch git nano wget nmap 
+    python python2 python-dev python3 php java git perl
+    bash nano curl openssl openssh wget clang nmap
+    w3m hydra ruby macchanger host dnsutils coreutils
+    fish zip figlet cowsay unzip vim golang rust lua
+    sqlite nodejs-lts tcpdump ettercap net-tools iproute2
+    termux-api ffmpeg imagemagick sox htop tree neofetch
+    screen tmux mpv metasploit sqlmap nikto
 )
 
 # Function to check if a package is installed
@@ -73,6 +79,10 @@ while true; do
     elif [[ "$choice" == "99" ]]; then
         echo -e "\033[92mInstalling/updating all packages...\033[0m"
         for pkg in "${packages[@]}"; do
+            if [[ "$pkg" == "curl" ]]; then
+                echo -e "\033[93mSkipping update for curl.\033[0m"
+                continue
+            fi
             echo -e "\033[93mInstalling/updating $pkg...\033[0m"
             if is_installed "$pkg"; then
                 echo -e "\033[93m$pkg is already installed, updating...\033[0m"
@@ -85,10 +95,14 @@ while true; do
                 fi
             fi
         done
-        echo -e "\033[92mAll packages installed or updated!\033[0m"
+        echo -e "\033[92mAll packages installed or updated (except curl)!\033[0m"
         break
     elif [[ "$choice" -ge 1 && "$choice" -le ${#packages[@]} ]]; then
         selected_pkg="${packages[$((choice - 1))]}"
+        if [[ "$selected_pkg" == "curl" ]]; then
+            echo -e "\033[93mSkipping update for curl.\033[0m"
+            continue
+        fi
         echo -e "\033[92mInstalling/updating $selected_pkg...\033[0m"
         if is_installed "$selected_pkg"; then
             echo -e "\033[93m$selected_pkg is already installed, updating...\033[0m"
@@ -113,5 +127,3 @@ echo -e "\033[95m
 +---------------------------------------+
 "
 read -p "Press Enter to exit."
-
-clear

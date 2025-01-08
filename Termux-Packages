@@ -12,8 +12,8 @@ fi
 clear
 
 # Update and Upgrade
-    echo -e "\033[93mUpdate and Upgrade...\033[0m"
-    pkg update && pkg upgrade
+    echo -e "\033[93mUpdating and Upgrading...\033[0m"
+    pkg update -y && pkg upgrade -y
 
 # Clear the screen
 clear

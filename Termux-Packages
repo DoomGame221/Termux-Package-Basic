@@ -115,17 +115,10 @@ while true; do
             pkg install proot-distro
             pd install ubuntu
             pd login ubuntu
+        if proot-distro list | grep -q "ubuntu"; then 
             apt update && apt upgrade
+            echo -e"\033[92mOnce installed You can type exit to quit Ubuntu.[0m"
         fi
-
-        if [[ "$selected_pkg" == "hydra" ]]; then
-            echo -e "\033[93mChecking for Ubuntu in proot-distro...\033[0m"
-            if proot-distro list | grep -q "ubuntu"; then
-                echo -e "\033[93mInstalling dependencies for hydra...\033[0m"
-                pkg install hydra
-            else
-                echo -e "\033[91mPlease Install Ubuntu in proot-distro before installing hydra.\033[0m"
-            fi
         fi
 
         if is_installed "$selected_pkg"; then
@@ -138,7 +131,7 @@ while true; do
                 echo -e "\033[91mFailed to install $selected_pkg.\033[0m"
             fi
         fi
-    else
+    elsewhere
         echo -e "\033[91mInvalid choice. Please try again.\033[0m"
     fi
 done
@@ -150,6 +143,6 @@ echo -e "\033[95m
 |   Ready to explore and create more!   |
 +---------------------------------------+
 "
-read -p "Press Enter to exit.
-"
+read -p "Press Enter to exit."
+
 clear

@@ -12,8 +12,8 @@ fi
 clear
 
 # Update and Upgrade
-    echo -e "\033[93mUpdating and Upgrading...\033[0m"
-    pkg update -y && pkg upgrade -y
+echo -e "\033[93mUpdating and Upgrading...\033[0m"
+pkg update -y && pkg upgrade -y
 
 # Clear the screen
 clear
@@ -50,6 +50,9 @@ packages=(
     screen tmux mpv metasploit sqlmap nikto
 )
 
+# Sort the packages alphabetically
+sorted_packages=($(printf '%s\n' "${packages[@]}" | sort))
+
 # Function to check if a package is installed
 is_installed() {
     dpkg -l | grep -qw "$1"
@@ -57,12 +60,12 @@ is_installed() {
 
 # Display the list of packages with color coding for installed packages
 echo -e "\033[93m
-Available packages:
+Available packages (A-Z):
 "
 
 # Display numbered list of packages with color based on installation status
-for i in "${!packages[@]}"; do
-    pkg="${packages[i]}"
+for i in "${!sorted_packages[@]}"; do
+    pkg="${sorted_packages[i]}"
     if is_installed "$pkg"; then
         # If package is installed, show in green
         echo -e "\033[92m[$((i + 1))] $pkg (Installed)\033[0m"
@@ -84,12 +87,12 @@ while true; do
         break
     elif [[ "$choice" == "99" ]]; then
         echo -e "\033[92mInstalling/updating all packages...\033[0m"
-        for pkg in "${packages[@]}"; do
-            if [[ "$pkg" == "curl" ]]; then
-                echo -e "\033[93mSkipping update for curl.\033[0m"
-                continue
-            fi
+        for pkg in "${sorted_packages[@]}"; do
             echo -e "\033[93mInstalling/updating $pkg...\033[0m"
+            if [[ "$pkg" == "hydra" ]]; then
+                echo -e "\033[93mInstalling dependencies for hydra...\033[0m"
+                apt install -y build-essential libssl-dev libssh-dev
+            fi
             if is_installed "$pkg"; then
                 echo -e "\033[93m$pkg is already installed, updating...\033[0m"
                 apt install --only-upgrade -y "$pkg"
@@ -101,15 +104,21 @@ while true; do
                 fi
             fi
         done
-        echo -e "\033[92mAll packages installed or updated (except curl)!\033[0m"
+        echo -e "\033[92mAll packages installed or updated!\033[0m"
         break
-    elif [[ "$choice" -ge 1 && "$choice" -le ${#packages[@]} ]]; then
-        selected_pkg="${packages[$((choice - 1))]}"
-        if [[ "$selected_pkg" == "curl" ]]; then
-            echo -e "\033[93mSkipping update for curl.\033[0m"
-            continue
-        fi
+    elif [[ "$choice" -ge 1 && "$choice" -le ${#sorted_packages[@]} ]]; then
+        selected_pkg="${sorted_packages[$((choice - 1))]}"
         echo -e "\033[92mInstalling/updating $selected_pkg...\033[0m"
+
+        if [[ "$selected_pkg" == "hydra" ]]; then
+            echo -e "\033[93mInstalling dependencies for hydra...\033[0m"
+            pkg install proot-distro
+            pd install ubuntu
+            pd login ubuntu
+            apt update && apt upgrade
+            pkg install hydra
+        fi
+
         if is_installed "$selected_pkg"; then
             echo -e "\033[93m$selected_pkg is already installed, updating...\033[0m"
             apt install --only-upgrade -y "$selected_pkg"
@@ -132,6 +141,6 @@ echo -e "\033[95m
 |   Ready to explore and create more!   |
 +---------------------------------------+
 "
-read -p "Press Enter to exit."
-
+read -p "Press Enter to exit.
+"
 clear

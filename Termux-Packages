@@ -115,10 +115,6 @@ while true; do
             pkg install proot-distro
             pd install ubuntu
             pd login ubuntu
-        if proot-distro list | grep -q "ubuntu"; then 
-            apt update && apt upgrade
-            echo -e "\033[92mOnce installed You can type exit to quit Ubuntu.[0m"
-        fi
         fi
 
         if is_installed "$selected_pkg"; then

@@ -127,8 +127,6 @@ while true; do
                 echo -e "\033[91mFailed to install $selected_pkg.\033[0m"
             fi
         fi
-    elsewhere
-        echo -e "\033[91mInvalid choice. Please try again.\033[0m"
     fi
 done
 

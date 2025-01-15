@@ -41,10 +41,10 @@ echo -e "\033[93m
 
 # List of packages
 packages=(
-    python python2 proot-distro php git perl
+    python python2 proot-distro git perl
     bash nano curl openssl openssh wget clang nmap
     w3m hydra ruby macchanger host dnsutils coreutils
-    fish zip figlet cowsay unzip vim golang rust lua
+    fish zip figlet cowsay unzip vim golang rust
     sqlite nodejs-lts tcpdump ettercap net-tools iproute2
     termux-api ffmpeg imagemagick sox htop tree neofetch
     screen tmux mpv metasploit sqlmap nikto ubuntu
